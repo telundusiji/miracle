@@ -20,9 +20,4 @@
   </modules>
 
   <name>miracle-photograph</name>
-  <url>http://te-amo.site</url>
-
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
 </project>

@@ -10,14 +10,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>photograph-start</artifactId>
-
+    <packaging>jar</packaging>
     <name>photograph-start</name>
     <url>http://te-amo.site</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.7</maven.compiler.source>
-        <maven.compiler.target>1.7</maven.compiler.target>
     </properties>
 
     <dependencies>
@@ -28,6 +26,10 @@
         <dependency>
             <artifactId>spring-boot-starter-tomcat</artifactId>
             <groupId>org.springframework.boot</groupId>
+        </dependency>
+        <dependency>
+            <groupId>site.teamo.miracle.photograph</groupId>
+            <artifactId>photograph-api</artifactId>
         </dependency>
     </dependencies>
     <build>

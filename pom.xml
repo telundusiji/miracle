@@ -19,6 +19,7 @@
     </properties>
     <modules>
         <module>miracle-photograph</module>
+        <module>miracle-blog</module>
     </modules>
     <dependencyManagement>
         <dependencies>

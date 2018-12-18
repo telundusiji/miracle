@@ -24,10 +24,6 @@
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
         <dependency>
-            <artifactId>spring-boot-starter-tomcat</artifactId>
-            <groupId>org.springframework.boot</groupId>
-        </dependency>
-        <dependency>
             <groupId>site.teamo.miracle.photograph</groupId>
             <artifactId>photograph-api</artifactId>
         </dependency>

@@ -20,6 +20,7 @@
     <modules>
         <module>miracle-photograph</module>
         <module>miracle-blog</module>
+        <module>miracle-util</module>
     </modules>
     <dependencyManagement>
         <dependencies>
@@ -27,6 +28,12 @@
                 <groupId>site.teamo.miracle.photograph</groupId>
                 <artifactId>photograph-api</artifactId>
                 <version>${miracle.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.2</version>
+                <scope>provided</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>

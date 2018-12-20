@@ -1,12 +1,10 @@
 package site.teamo.miracle.photograph.api.impl;
 
-import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import site.teamo.miracle.photograph.api.IndexController;
-import site.teamo.miracle.photograph.api.request.BaseRequest;
 import site.teamo.miracle.photograph.api.request.index.IndexRequest;
 
 import javax.validation.Valid;

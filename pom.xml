@@ -30,6 +30,11 @@
                 <version>${miracle.version}</version>
             </dependency>
             <dependency>
+                <groupId>site.teamo.miracle.util</groupId>
+                <artifactId>util-business</artifactId>
+                <version>${miracle.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>1.18.2</version>

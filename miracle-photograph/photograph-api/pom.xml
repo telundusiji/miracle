@@ -21,8 +21,8 @@
             <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
+            <groupId>site.teamo.miracle.util</groupId>
+            <artifactId>util-business</artifactId>
         </dependency>
     </dependencies>
 </project>

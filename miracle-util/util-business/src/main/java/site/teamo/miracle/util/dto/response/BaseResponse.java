@@ -1,4 +1,4 @@
-package site.teamo.miracle.photograph.api.response;
+package site.teamo.miracle.util.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

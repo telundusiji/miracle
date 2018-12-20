@@ -11,8 +11,13 @@
 
     <groupId>site.teamo.miracle</groupId>
     <artifactId>miracle-util</artifactId>
+    <packaging>pom</packaging>
 
     <name>miracle-util</name>
+    <modules>
+        <module>util-business</module>
+        <module>util-component</module>
+    </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

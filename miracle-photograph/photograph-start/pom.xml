@@ -27,6 +27,10 @@
             <groupId>site.teamo.miracle.photograph</groupId>
             <artifactId>photograph-api</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
     </dependencies>
     <build>
 

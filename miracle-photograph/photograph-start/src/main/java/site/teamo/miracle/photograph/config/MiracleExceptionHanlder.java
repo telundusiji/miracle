@@ -1,5 +1,6 @@
 package site.teamo.miracle.photograph.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -7,10 +8,10 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import site.teamo.miracle.util.dto.response.BaseResponse;
+import site.teamo.miracle.util.enums.ApiEnum;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author haocongshun
@@ -18,6 +19,7 @@ import java.util.Map;
  */
 @RestControllerAdvice
 @Component
+@Slf4j
 public class MiracleExceptionHanlder {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public BaseResponse handleBindException(MethodArgumentNotValidException ex, HttpServletRequest request) {
@@ -34,15 +36,23 @@ public class MiracleExceptionHanlder {
             errorMsg.append(fieldError.getDefaultMessage());
             errorMsg.append(";");
         }
+        log.error(ApiEnum.MethodArgumentNotValidException.getMsg(),ex);
         return BaseResponse.builder()
                 .requestURL(request.getRequestURL().toString())
-                .errorMsg(errorMsg.toString())
+                .code(ApiEnum.MethodArgumentNotValidException.getCode())
+                .status(ApiEnum.MethodArgumentNotValidException.getStatus())
+                .msg(errorMsg.toString())
                 .build();
     }
 
     @ExceptionHandler(Exception.class)
-    public Map handleBindException(Exception e){
-        e.printStackTrace();
-        return null;
+    public BaseResponse handleBindException(Exception e,HttpServletRequest request){
+        log.error(ApiEnum.UnknownException.getMsg(),e);
+        return BaseResponse.builder()
+                .requestURL(request.getRequestURL().toString())
+                .code(ApiEnum.UnknownException.getCode())
+                .status(ApiEnum.UnknownException.getStatus())
+                .msg(ApiEnum.UnknownException.getMsg())
+                .build();
     }
 }

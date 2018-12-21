@@ -18,7 +18,6 @@ public class IndexControllerImpl implements IndexController {
     @Override
     @RequestMapping("/")
     public String index(@RequestBody @Validated IndexRequest baseRequest) {
-        //System.out.println(bindingResult.getFieldError().getDefaultMessage());
         System.out.println(baseRequest.toString());
         return null;
     }

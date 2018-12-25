@@ -35,6 +35,21 @@
                 <version>${miracle.version}</version>
             </dependency>
             <dependency>
+                <groupId>site.teamo.miracle.photograph</groupId>
+                <artifactId>photograph-domain</artifactId>
+                <version>${miracle.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>site.teamo.miracle.photograph</groupId>
+                <artifactId>photograph-dao</artifactId>
+                <version>${miracle.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>site.teamo.miracle.photograph</groupId>
+                <artifactId>photograph-service</artifactId>
+                <version>${miracle.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>1.18.2</version>

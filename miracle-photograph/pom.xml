@@ -17,6 +17,9 @@
   <modules>
     <module>photograph-start</module>
     <module>photograph-api</module>
+      <module>photograph-domain</module>
+    <module>photograph-service</module>
+    <module>photograph-dao</module>
   </modules>
 
   <name>miracle-photograph</name>

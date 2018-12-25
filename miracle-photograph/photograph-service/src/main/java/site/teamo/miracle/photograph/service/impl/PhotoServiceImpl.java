@@ -16,6 +16,12 @@ public class PhotoServiceImpl implements PhotoService {
     private PhotoRepository photoRepository;
     @Override
     public String save(Photo photo) {
+
         return photoRepository.save(photo).getId();
+    }
+
+    @Override
+    public Iterable<Photo> get(String id) {
+        return photoRepository.findAll();
     }
 }

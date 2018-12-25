@@ -8,4 +8,5 @@ import site.teamo.miracle.photograph.domain.bean.Photo;
  */
 public interface PhotoService {
     String save(Photo photo);
+    Iterable<Photo> get(String id);
 }

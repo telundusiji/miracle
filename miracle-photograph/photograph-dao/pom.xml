@@ -27,6 +27,10 @@
             <groupId>site.teamo.miracle.photograph</groupId>
             <artifactId>photograph-domain</artifactId>
         </dependency>
+        <dependency>
+            <groupId>site.teamo.miracle.util</groupId>
+            <artifactId>util-business</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

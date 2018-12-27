@@ -1,4 +1,4 @@
-package site.teamo.miracle.photograph.dao;
+package site.teamo.miracle.photograph.dao.repository;
 
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 import org.springframework.stereotype.Repository;

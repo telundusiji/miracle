@@ -2,7 +2,7 @@ package site.teamo.miracle.photograph.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import site.teamo.miracle.photograph.dao.PhotoRepository;
+import site.teamo.miracle.photograph.dao.repository.PhotoRepository;
 import site.teamo.miracle.photograph.domain.bean.Photo;
 import site.teamo.miracle.photograph.service.PhotoService;
 

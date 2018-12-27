@@ -4,7 +4,7 @@ package site.teamo.miracle.util.enums;
  * @author haocongshun
  * create on 2018/12/21 9:40
  */
-public enum ApiEnum {
+public enum ExceptionEnum {
     /**
      * 成功. ErrorCode : 0
      */
@@ -32,7 +32,11 @@ public enum ApiEnum {
     /**
      * 参数验证错误. ErrorCode : 040001
      */
-    MethodArgumentNotValidException("040001","MethodArgumentNotValidException","参数验证错误");
+    MethodArgumentNotValidException("040001","MethodArgumentNotValidException","参数验证错误"),
+    /**
+     *
+     */
+    DataCollectorCheckException("040002","DataCollectorCheckException","数据采集校验异常");
 
     private String code;
 
@@ -40,7 +44,7 @@ public enum ApiEnum {
 
     private String msg;
 
-    ApiEnum(String code, String status, String msg) {
+    ExceptionEnum(String code, String status, String msg) {
         this.code = code;
         this.status = status;
         this.msg = msg;

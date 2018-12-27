@@ -1,5 +1,7 @@
 package site.teamo.miracle.util.mds;
 
+import site.teamo.miracle.util.exception.DataCollectorCheckException;
+
 import java.util.Vector;
 
 /**
@@ -25,7 +27,7 @@ public abstract class DataCollector<T> {
         dps.removeElement(dp);
     }
 
-    public abstract void notifyProcessor(T arg);
+    public abstract void notifyProcessor(T arg) throws DataCollectorCheckException;
 
     public synchronized void deleteProcessor() {
         dps.removeAllElements();

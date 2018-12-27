@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import site.teamo.miracle.util.enums.ApiEnum;
+import site.teamo.miracle.util.enums.ExceptionEnum;
 
 /**
  * @author haocongshun
@@ -51,8 +51,8 @@ public class BaseResponse {
     public static BaseResponse getSuccessResponse(String requestURL,Object data){
         return BaseResponse.builder()
                 .requestURL(requestURL)
-                .code(ApiEnum.SUCCESS.getCode())
-                .msg(ApiEnum.SUCCESS.getStatus())
+                .code(ExceptionEnum.SUCCESS.getCode())
+                .msg(ExceptionEnum.SUCCESS.getStatus())
                 .data(data)
                 .build();
     }
@@ -60,8 +60,8 @@ public class BaseResponse {
     public static BaseResponse getSuccessResponse(String requestURL){
         return BaseResponse.builder()
                 .requestURL(requestURL)
-                .code(ApiEnum.SUCCESS.getCode())
-                .msg(ApiEnum.SUCCESS.getStatus())
+                .code(ExceptionEnum.SUCCESS.getCode())
+                .msg(ExceptionEnum.SUCCESS.getStatus())
                 .build();
     }
 }

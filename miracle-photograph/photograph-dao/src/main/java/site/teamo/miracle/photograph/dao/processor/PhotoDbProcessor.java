@@ -16,9 +16,6 @@ public class PhotoDbProcessor implements DataProcessor<Photo> {
     private PhotoMapper photoMapper;
     @Override
     public void handle(Photo o) {
-        if(!(o instanceof Photo)){
-            return;
-        }
         Photo photo = (Photo)o;
         photoMapper.insert(photo);
     }

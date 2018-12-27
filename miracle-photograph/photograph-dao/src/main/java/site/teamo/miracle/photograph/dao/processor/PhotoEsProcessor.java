@@ -16,9 +16,6 @@ public class PhotoEsProcessor implements DataProcessor {
     private PhotoRepository photoRepository;
     @Override
     public void handle(Object o) {
-        if(!(o instanceof Photo)){
-            return;
-        }
         Photo photo = (Photo)o;
         photoRepository.save(photo);
     }

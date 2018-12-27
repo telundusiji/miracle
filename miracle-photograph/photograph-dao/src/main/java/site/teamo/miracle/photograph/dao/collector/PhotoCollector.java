@@ -5,6 +5,8 @@ import org.springframework.stereotype.Component;
 import site.teamo.miracle.photograph.dao.processor.PhotoDbProcessor;
 import site.teamo.miracle.photograph.dao.processor.PhotoEsProcessor;
 import site.teamo.miracle.photograph.domain.bean.Photo;
+import site.teamo.miracle.util.constant.MiracleConstant;
+import site.teamo.miracle.util.exception.DataCollectorCheckException;
 import site.teamo.miracle.util.mds.DataCollector;
 import site.teamo.miracle.util.mds.DataProcessor;
 
@@ -15,30 +17,29 @@ import site.teamo.miracle.util.mds.DataProcessor;
 @Component
 public class PhotoCollector extends DataCollector<Photo> {
     @Autowired
-    public PhotoCollector(PhotoEsProcessor photoEsProcessor, PhotoDbProcessor photoDbProcessor){
+    public PhotoCollector(PhotoEsProcessor photoEsProcessor, PhotoDbProcessor photoDbProcessor) {
         super.addProcessor(photoEsProcessor);
         super.addProcessor(photoDbProcessor);
     }
 
     @Override
-    public void notifyProcessor(Photo photo){
-        if(!checkPhoto(photo)){
-
-        }
+    public void notifyProcessor(Photo photo) throws DataCollectorCheckException {
+        checkPhoto(photo);
         Object[] arrLocal;
 
         synchronized (this) {
             arrLocal = dps.toArray();
         }
-
-        for (int i = arrLocal.length - 1; i >= 0; i--){
+        for (int i = arrLocal.length - 1; i >= 0; i--) {
             ((DataProcessor) arrLocal[i]).handle(photo);
         }
     }
 
-    private static boolean checkPhoto(Photo p){
+    private static void checkPhoto(Photo p) throws DataCollectorCheckException {
         //TODO Photo实体检查
-        return true;
+        if (p == null) {
+            throw new DataCollectorCheckException("photo is null", p);
+        }
     }
 
 }

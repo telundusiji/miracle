@@ -5,7 +5,6 @@ import org.springframework.stereotype.Component;
 import site.teamo.miracle.photograph.dao.processor.PhotoDbProcessor;
 import site.teamo.miracle.photograph.dao.processor.PhotoEsProcessor;
 import site.teamo.miracle.photograph.domain.bean.Photo;
-import site.teamo.miracle.util.constant.MiracleConstant;
 import site.teamo.miracle.util.exception.DataCollectorCheckException;
 import site.teamo.miracle.util.mds.DataCollector;
 import site.teamo.miracle.util.mds.DataProcessor;

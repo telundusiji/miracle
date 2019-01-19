@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.elasticsearch.annotations.Document;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * @author haocongshun
@@ -20,5 +21,10 @@ import java.io.Serializable;
 public class Photo implements Serializable {
     private static final long serialVersionUID = -1893372374521081122L;
     String id;
-    String url;
+    Date gmtCreate;
+    Date gmtModified;
+    String path;
+    String title;
+    String status;
+    String tags;
 }

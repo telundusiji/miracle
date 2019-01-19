@@ -25,7 +25,7 @@ public class PhotoController {
     private PhotoService photoService;
     @RequestMapping("/save")
     public String save(@RequestBody @Validated PhotoSaveRequest photoSaveRequest){
-        return photoService.save(Photo.builder().id(photoSaveRequest.getId()).url(photoSaveRequest.getUrl()).build());
+        return photoService.save(Photo.builder().id(photoSaveRequest.getId()).path(photoSaveRequest.getUrl()).build());
     }
     @RequestMapping("/list")
     public List<Photo> get(){
@@ -36,5 +36,9 @@ public class PhotoController {
             photoList.add(iterator.next());
         }
         return photoList;
+    }
+
+    public String getUrl(){
+        return "";
     }
 }

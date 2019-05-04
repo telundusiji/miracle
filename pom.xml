@@ -21,12 +21,19 @@
         <module>miracle-photograph</module>
         <module>miracle-blog</module>
         <module>miracle-util</module>
+        <module>miracle-web</module>
+        <module>miracle-web</module>
     </modules>
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>site.teamo.miracle.photograph</groupId>
                 <artifactId>photograph-api</artifactId>
+                <version>${miracle.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>site.teamo.miracle.blog</groupId>
+                <artifactId>blog-api</artifactId>
                 <version>${miracle.version}</version>
             </dependency>
             <dependency>
@@ -40,6 +47,13 @@
                 <version>1.18.2</version>
                 <scope>provided</scope>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.2.54</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 </project>

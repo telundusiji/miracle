@@ -36,6 +36,16 @@
                 <version>${miracle.version}</version>
             </dependency>
             <dependency>
+                <groupId>site.teamo.miracle.blog</groupId>
+                <artifactId>blog-dao</artifactId>
+                <version>${miracle.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>site.teamo.miracle.blog</groupId>
+                <artifactId>blog-service</artifactId>
+                <version>${miracle.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>site.teamo.miracle.util</groupId>
                 <artifactId>util-business</artifactId>
                 <version>${miracle.version}</version>

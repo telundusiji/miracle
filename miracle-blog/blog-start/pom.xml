@@ -27,6 +27,10 @@
             <groupId>site.teamo.miracle.blog</groupId>
             <artifactId>blog-api</artifactId>
         </dependency>
+        <dependency>
+            <groupId>site.teamo.miracle.blog</groupId>
+            <artifactId>blog-service</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

@@ -5,16 +5,14 @@ import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.io.Charsets;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
 import java.io.File;
-import java.io.FileFilter;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.*;
 
-@ComponentScan
+@Component
 public class BlogContext {
 
     private Map<String, JSONObject> articleInfos = new HashMap<>();
@@ -27,11 +25,11 @@ public class BlogContext {
 
     private Map<String, List<String>> tagInfos = new HashMap<>();
 
-    private void init(String articlePath, String articleZipPath) {
+    public void init(String articlePath) {
         loadArticles(articlePath);
     }
 
-    public void loadArticles(String articlePath) {
+    private void loadArticles(String articlePath) {
         File[] articles = new File(articlePath).listFiles();
         for (File article : articles) {
 
@@ -75,5 +73,27 @@ public class BlogContext {
             articleIds.add(articleKey);
 
         }
+        for(Map.Entry<String,JSONObject> entry:articleInfos.entrySet()){
+            String category = entry.getValue().getString("category");
+            addToMap(category,entry.getKey(),categoryInfos);
+            String[] tags = entry.getValue().getString("tags").split(",");
+            for (String tag : tags){
+                addToMap(tag,entry.getKey(),tagInfos);
+            }
+        }
     }
+    private static void addToMap(String key,String value,Map<String,List<String>> map){
+        if(map.containsKey(key)){
+            map.get(key).add(value);
+        }else {
+            List<String> list = new ArrayList<>();
+            list.add(value);
+            map.put(key,list);
+        }
+    }
+
+    public void addArticle(JSONObject articleInfo,String content){
+
+    }
+
 }

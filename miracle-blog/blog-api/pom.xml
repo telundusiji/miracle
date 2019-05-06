@@ -31,6 +31,10 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
         </dependency>
+        <dependency>
+            <groupId>site.teamo.miracle.blog</groupId>
+            <artifactId>blog-service</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

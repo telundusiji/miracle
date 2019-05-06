@@ -1,4 +1,4 @@
-package site.teamo.miracle.blog.core;
+package site.teamo.miracle.blog.dao.core;
 
 
 import com.alibaba.fastjson.JSONObject;

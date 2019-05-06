@@ -2,4 +2,4 @@ server:
   port: 8080
 miracle:
   blog:
-    articlePath: /root/
+    articlePath: D:\temp\article

@@ -33,12 +33,7 @@ public class BlogContext {
         File[] articles = new File(articlePath).listFiles();
         for (File article : articles) {
 
-            File[] articleInfoFile = article.listFiles(new FilenameFilter() {
-                @Override
-                public boolean accept(File dir, String name) {
-                    return name.endsWith(".json");
-                }
-            });
+            File[] articleInfoFile = article.listFiles((dir,name) ->name.endsWith(".json"));
             if (articleInfoFile.length != 1) {
                 continue;
             }
@@ -49,12 +44,7 @@ public class BlogContext {
                 e.printStackTrace();
                 continue;
             }
-            File[] articleContentFile = article.listFiles(new FilenameFilter() {
-                @Override
-                public boolean accept(File dir, String name) {
-                    return name.endsWith(".md");
-                }
-            });
+            File[] articleContentFile = article.listFiles((dir, name) -> name.endsWith(".md"));
             if (articleContentFile.length != 1) {
                 continue;
             }
@@ -96,4 +86,51 @@ public class BlogContext {
 
     }
 
+    public JSONObject getArticleInfo(String articleKey){
+        return articleInfos.get(articleKey);
+    }
+
+    public String getArticleContent(String articleKey){
+        return articleContents.get(articleKey);
+    }
+
+    public JSONObject getArticle(String articleKey){
+        JSONObject article = (JSONObject) articleInfos.get(articleKey).clone();
+        article.put("content",articleContents.get(articleKey));
+        return article;
+    }
+
+    public List<String> getArticleIds(){
+        return articleIds;
+    }
+
+    public List<String> getArticleIdByTag(String tagKey){
+        return tagInfos.get(tagKey);
+    }
+
+    public List<String> getArticleIdByCategory(String categoryKey){
+        return categoryInfos.get(categoryKey);
+    }
+
+    public List<JSONObject> getArticleByTag(String tagKey){
+        List<String> articleIdsByTag =  tagInfos.get(tagKey);
+        List<JSONObject> result = new ArrayList<>();
+        articleIdsByTag.forEach((articleKey)->result.add(getArticle(articleKey)));
+        return result;
+    }
+
+    public List<JSONObject> getArticleByCategory(String categoryKey){
+        List<String> articleIdsByCategory = categoryInfos.get(categoryKey);
+        List<JSONObject> result = new ArrayList<>();
+        articleIdsByCategory.forEach((articleKey)->result.add(getArticle(articleKey)));
+        return result;
+    }
+
+    public Map<String,List<String>> getCategoryInfos(){
+        return categoryInfos;
+    }
+
+    public Map<String,List<String>> getTagInfos(){
+        return tagInfos;
+    }
 }

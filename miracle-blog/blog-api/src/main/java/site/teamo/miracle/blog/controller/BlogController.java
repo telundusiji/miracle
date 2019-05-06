@@ -3,6 +3,7 @@ package site.teamo.miracle.blog.controller;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,8 +15,8 @@ import site.teamo.miracle.blog.service.TagService;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
-@RequestMapping("/blog")
 public class BlogController {
 
     @Autowired
@@ -30,7 +31,7 @@ public class BlogController {
     @Autowired
     private BlogContext blogContext;
 
-    @GetMapping("/article")
+    @GetMapping("/blog/article")
     public JSONArray articles(){
         List<String> articles = blogContext.getArticleIds();
         JSONArray result = new JSONArray();
@@ -38,7 +39,7 @@ public class BlogController {
         return result;
     }
 
-    @GetMapping("/article/{articleName}")
+    @GetMapping("/blog/article/{articleName}")
     public JSONObject article(@PathVariable String articleName){
         return blogContext.getArticle(articleName);
     }

@@ -15,14 +15,13 @@
     <li><a href="#">炫彩版</a></li>
 </ul>
 <hr></pre>
-<h2>Article</h2>
+<div id="article">
+<h2>{{article.name}}</h2>
 
 
 <pre><img src="${contextPath}/static/icons/blank.gif" alt="Icon "> <a href="?C=N;O=D">Name</a>                    <a href="?C=M;O=A">Last modified</a>      <a href="?C=S;O=A">Category</a>  <a href="?C=D;O=A">Tags</a>
     <hr>
-<div id="articleList">
-<#--<img src="${contextPath}/static/icons/back.gif" alt="[PARENTDIR]"> <a href="/">上一级</a>-->
-<span v-for="article in  articles"><img   src="${contextPath}/static/icons/text.gif" alt="[ARTICLE]"> <a href='${contextPath}/content.html?articleKey={{article.name}}'>{{ article.name }}</a>                   {{ article.createTime }}    {{ article.category }}      {{ article.tags }}</span>
+
 </div>
 <hr></pre>
 
@@ -36,9 +35,7 @@
     var app = new Vue({
         el: '#articleList',
         data: {
-            articles: [
-
-            ]
+            article: {}
         }
 
     })
@@ -49,17 +46,25 @@
     function loadData() {
         $.ajax({
             type: 'get',
-            url: 'http://127.0.0.1:8080/blog/article',
+            url: 'http://127.0.0.1:8080/blog/article/'+getQueryString("articleKey"),
             dataType: 'JSON',
             contentType: 'application/json',
             success: function (data) {
                 //alert(data[0])
-                app.articles=data;
+                app.article=data;
             },
             error: function (data) {
                 alert("failed")
             }
         })
+    }
+
+
+    function getQueryString(name)
+    {
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r!=null)return  unescape(r[2]); return null;
     }
 </script>
 

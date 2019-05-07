@@ -5,6 +5,7 @@
     <title>Miracle</title>
     <script type="application/javascript" src="${contextPath}/static/js/vue.js"></script>
     <script type="application/javascript" src="${contextPath}/static/js/jquery-3.3.1.min.js"></script>
+    <script type="application/javascript" src="${contextPath}/static/showdown-1.9.0/dist/showdown.js"></script>
 </head>
 <body>
 <h1>Miracle<span style="font-size: small;margin-left: 20px;">hope for a miracle</span></h1>
@@ -19,11 +20,12 @@
 <h2>{{article.name}}</h2>
 
 
-<pre><img src="${contextPath}/static/icons/blank.gif" alt="Icon "> <a href="?C=N;O=D">Name</a>                    <a href="?C=M;O=A">Last modified</a>      <a href="?C=S;O=A">Category</a>  <a href="?C=D;O=A">Tags</a>
+<pre><a href="?C=M;O=A">{{article.createTime}}</a>      <a href="?C=S;O=A">{{article.category}}</a>      <a href="?C=D;O=A">{{article.tags}}</a>
     <hr>
+    <span v-html="article.html"></span>
 
-</div>
 <hr></pre>
+</div>
 
 <p>这是一个简易版的Miracle，如需访问更多内容请转到  <a
         href="http://archive.apache.org/dist/">Miracle炫彩版</a>.</p>
@@ -33,7 +35,7 @@
 </body>
 <script type="application/javascript">
     var app = new Vue({
-        el: '#articleList',
+        el: '#article',
         data: {
             article: {}
         }
@@ -42,6 +44,7 @@
 
     $(function () {
         loadData();
+        
     })
     function loadData() {
         $.ajax({
@@ -51,6 +54,8 @@
             contentType: 'application/json',
             success: function (data) {
                 //alert(data[0])
+                var converter = new showdown.Converter();
+                data.html=converter.makeHtml(data.content);
                 app.article=data;
             },
             error: function (data) {

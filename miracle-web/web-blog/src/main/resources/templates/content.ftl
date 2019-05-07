@@ -59,7 +59,7 @@
                 app.article=data;
             },
             error: function (data) {
-                alert("failed")
+                //alert("failed")
             }
         })
     }

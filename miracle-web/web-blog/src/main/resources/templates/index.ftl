@@ -22,7 +22,7 @@
     <hr>
 <div id="articleList">
 <#--<img src="${contextPath}/static/icons/back.gif" alt="[PARENTDIR]"> <a href="/">上一级</a>-->
-<span v-for="article in  articles"><img   src="${contextPath}/static/icons/text.gif" alt="[ARTICLE]"> <a v-bind:href="article.url">{{ article.name }}</a>                   {{ article.createTime }}    {{ article.category }}      {{ article.tags }}</span>
+<span v-for="article in  articles"><img   src="${contextPath}/static/icons/text.gif" alt="[ARTICLE]"> <a v-bind:href="article.url">{{ article.name }}</a>                   {{ article.createTime }}    {{ article.category }}      {{ article.tags }}</br></span>
 </div>
 <hr></pre>
 
@@ -55,7 +55,7 @@
             success: function (data) {
                 //alert(data[0])
                 for(var i = 0;i<data.length;i++){
-                    data[i].url="http://127.0.0.1:8081/content?articleKey="+data[i].name;
+                    data[i].url=encodeURI("http://127.0.0.1:8081/content?articleKey="+data[i].name);
                 }
                 app.articles=data;
             },
